@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+  background: radial-gradient(ellipse at bottom, #0b0f2a 0%, #000000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTEÚDO CENTRAL */
+.content {
+  text-align: center;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+button {
+  background: #22c55e;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* ESTRELAS */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow:
+    100px 200px white,
+    300px 400px white,
+    500px 100px white,
+    700px 300px white,
+    900px 500px white,
+    200px 600px white,
+    400px 800px white,
+    600px 700px white,
+    800px 200px white,
+    1000px 300px white,
+    1200px 600px white;
+}
+
+/* ESTRELA CADENTE */
+.shooting-stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shooting-stars::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, transparent);
+  transform: rotate(45deg);
+  animation: shooting 3s linear infinite;
+}
+
+@keyframes shooting {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(1200px, 800px) rotate(45deg);
+    opacity: 0;
+  }
+}
